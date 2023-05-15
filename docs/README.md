@@ -10,7 +10,7 @@ A matriz é utilizada para visualizar, a partir de demais players do mercado, po
 
 ![1682733151293](image/README/1682733151293.png)
 
-    Matriz de Avaliação de Valor - Imagem 1
+Matriz de Avaliação de Valor - Imagem 1
 
 Portanto, é possível concluir tais aspectos:
 
@@ -27,15 +27,15 @@ A seguir é possível ver mais cada serviço que foi utilizado na matriz para co
 
 <img src="image/README/1682733615340.png" width="400"> <img src="image/README/1682733688613.png" width="400">
 
-    Relatórios do mLabs - Imagens 2 e 3
+Relatórios do mLabs - Imagens 2 e 3
 
 <img src="image/README/1682733858289.png" width="300"> <img src="image/README/1682733913802.png" width="400">
 
-    Relatórios do Iconosquare - Imagens 4 e 5
+Relatórios do Iconosquare - Imagens 4 e 5
 
 <img src="image/README/1682734727469.png" width="150"> <img src="image/README/1682734615095.png" width="150"> <img src="image/README/1682734138008.png" width="150">
 
-    Relatórios do Instagram Analytics - Imagens 6, 7 e 8
+Relatórios do Instagram Analytics - Imagens 6, 7 e 8
 
 (Sprint 1) Entendimento da Experiência do Usuário
 
@@ -43,11 +43,37 @@ Preencher conforme a descrição do artefato na Adalove.
 
 ## (Sprint 2) Modelo de Bag of Words (IPYNB)
 
-Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
+O Bag of Words é uma técnica de linguagem natural útil para criar um conjunto não ordenado de palavras. Dessa forma, o Bag of Words será importante para a análise de sentimentos porque, com ele, será possível vetorizar e comparar as similaridades ou diferenças com base na frequência de repetição de cada palavra:
+
+O documento contendo a descrição técnica está disponível no seguinte link: https://github.com/2023M6T4-Inteli/Projeto4/blob/Dev/descri%C3%A7%C3%A3oT%C3%A9cnica.md
 
 ## (Sprint 2) Documentação do Modelo de Bag of Words
 
-Preencher conforme a descrição do artefato na Adalove.
+### Fluxograma de processamento (pipeline)
+
+Para a aplicação da técnica Bag Of Words, são necessárias algumas etapas de pré processamento de dados não estruturados, apresentadas na figura abaixo e serão descritas em mais detalhes a seguir.
+![1683822640735](image/README/1683822640735.png)
+- **Tokenização** : Nesta primeira etapa, o texto é, primeiramente, todo colocado em minúsculo independente da palavra e, logo em seguida, é feito um loop que itera por toda a frase e transforma cada palavra em um elemento da array.
+  Assim, é mais fácil para o modelo enxergar cada palavra com um único elemento de uma array, facilitando iterações futuras.
+
+```python
+['eu','gosto','de','sorvete','de','pistache']
+```
+
+- **Remoção de Stop Words** : Durante essa fase do processo são removidas todas as palavras que não agregam valor semântico ao texto, como por exemplo "o", "a","eu" e etc.
+  Fazendo isso, o modelo consegue entender melhor o significado de cada frase para a posterior análise de sentimentos.
+
+```python
+['gosto','sorvete','pistache']
+```
+
+- **Vetorização bag of words** : A última etapa desse processamento, consiste em tornar o texto uma matrix de vetores e contar quantas vezes determinada palavra aparece no corpus.
+
+```python
+['gosto','sorvete','pistache']
+[1,1,1]
+```
+As técnicas implementadas e descritas acima no pipeline estão descritas detalhadamente no seguinte documento: https://github.com/2023M6T4-Inteli/Projeto4/blob/Dev/descri%C3%A7%C3%A3oT%C3%A9cnica.md
 
 ## (Sprint 3) Modelo utilizando Word2Vec (IPYNB)
 
