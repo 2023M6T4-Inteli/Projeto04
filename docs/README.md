@@ -76,7 +76,7 @@ Para a aplicação da técnica Bag Of Words, são necessárias algumas etapas de
 [1,1,1]
 ```
 
-As técnicas implementadas e descritas acima no pipeline estão descritas detalhadamente no seguinte documento: https://github.com/2023M6T4-Inteli/Projeto4/blob/Dev/descri%C3%A7%C3%A3oT%C3%A9cnica.md
+As técnicas implementadas e descritas acima no pipeline estão descritas detalhadamente no seguinte documento: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/docs/descri%C3%A7%C3%A3oT%C3%A9cnica.md
 
 ## (Sprint 3) Modelo utilizando Word2Vec (IPYNB)
 Modelos com Bag of Words: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/notebook/modelos_bag_of_words.ipynb
@@ -127,7 +127,7 @@ Por fim, ao serem feitas as respectivas análises de acurácia do modelo com o N
 Por fim, é possível perceber que, mesmo com uma acurácia mais baixa que o modelo Naive Bayes utilizando Bag of Words, a matriz de confusão do mesmo modelo com a técnica de Word2Vec demonstrou ser positiva em relação ao objetivo central do projeto: identificar os comentários negativos para tratá-los e, de tal maneira, o modelo tendeu a identificar negativos, o que ocasionou na ocorrência de falso negativo nos comentários positivos, o que não acarreta grandes problemas no projeto.
 
 As técnicas implementadas e descritas acima têm sua análise detalhada no seguinte documento:
-https://github.com/2023M6T4-Inteli/Projeto4/blob/Dev/analisesSprint3.md
+https://github.com/2023M6T4-Inteli/Projeto04/blob/main/docs/analisesSprint3.md
 
 Como conclusão, pode-se entender que, em primeiro momento, a utilização da técnica Bag of Words nos modelos obteve um melhor resultado do que a Word2Vec, mas ainda há onde melhorar e, de tal maneira, os próximos passos do desenvolvimento visam a melhoria da base de dados e aplicação de novas técnicas e modelos nas duas abordagens para a definição do modelo final.
 
