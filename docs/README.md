@@ -79,9 +79,8 @@ Para a aplicação da técnica Bag Of Words, são necessárias algumas etapas de
 As técnicas implementadas e descritas acima no pipeline estão descritas detalhadamente no seguinte documento: https://github.com/2023M6T4-Inteli/Projeto4/blob/Dev/descri%C3%A7%C3%A3oT%C3%A9cnica.md
 
 ## (Sprint 3) Modelo utilizando Word2Vec (IPYNB)
-
-Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
-
+Modelos com Bag of Words: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/notebook/modelos_bag_of_words.ipynb
+Modelos com Word2Vec:https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/notebook/modelos_word2vec_full.ipynb
 ## (Sprint 3) Documentação do Modelo utilizando Word2Vec
 
 Em concordância com os feedbacks recebidos durante a Sprint Review 2 e as atividades propostas para esta sprint, foram realizadas diversas atividades que envolvem melhorias no pré processamento e continuidade na modelagem de processamento de linguagem natural para análise de sentimentos, agora referente ao Word2Vec. Tais atividades são apresentadas abaixo em mais detalhes.
