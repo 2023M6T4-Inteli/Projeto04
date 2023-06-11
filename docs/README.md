@@ -131,6 +131,12 @@ https://github.com/2023M6T4-Inteli/Projeto04/blob/main/docs/analisesSprint3.md
 
 Como conclusão, pode-se entender que, em primeiro momento, a utilização da técnica Bag of Words nos modelos obteve um melhor resultado do que a Word2Vec, mas ainda há onde melhorar e, de tal maneira, os próximos passos do desenvolvimento visam a melhoria da base de dados e aplicação de novas técnicas e modelos nas duas abordagens para a definição do modelo final.
 
+## Web Scraping
+
+Foi projetado um algoritimo de web scraping para coletar dados de comentários em posts, fornecendo uma solução automatizada e eficiente para obter informações relevantes. Ao inserir o link de um post, o algoritmo é capaz de extrair os comentários associados a ele, simplificando o processo de coleta de dados e permitindo uma análise mais aprofundada das interações dos usuários.
+
+No entanto, é recomendado que o parceiro considere a substituição desse algoritmo pela API do Instagram, visando uma integração mais direta e alinhada com as diretrizes da plataforma. A API do Instagram oferece uma interface oficial que permite acessar os dados de forma segura e em conformidade com as políticas estabelecidas. Ao utilizar a API, é possível obter os comentários de um post de maneira mais eficiente, eliminando a necessidade de desenvolver e manter um algoritmo personalizado de web scraping. Essa abordagem simplifica o processo, otimiza o tempo e garante uma coleta de dados confiável.
+
 ## (Sprint 4) Proposta de uma nova modelagem utilizando novas features (IPYNB)
 
 Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
