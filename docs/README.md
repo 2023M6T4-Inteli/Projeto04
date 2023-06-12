@@ -204,7 +204,7 @@ Assim o modelo começa recebendo um dado e o mesmo vai passando para os novos n�
 Com o modelo já explicado, foi aplicado o mesmo no dataset tratado com o word2vec na base [corpus](https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_word2vec_full.ipynb) e os seguintes resultados foram obtidos: 
 
 - Acurácia 56 % 
-![Matriz de confusão da rede neural LSTM](../images/matriz_confusao_rn.png)
+- ![Matriz de confusão da rede neural LSTM](../images/matriz_confusao_rn.png)
 
 
 Com isso a rede neural não se mostrou tão boa para lidar com o modelo word2vec nesse caso específico. Visto que a mesma tem uma tendência muito grande para comentários positivos.
