@@ -162,12 +162,12 @@ Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
 
 1. CatBoost: (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/catboost.ipynb)
    O CatBoost é uma biblioteca de gradient boosting que lida eficientemente com dados categóricos. Ele oferece uma implementação de alta performance, eliminando a necessidade de pré-processamento adicional. Com recursos como tratamento de valores ausentes e otimização automática de hiperparâmetros, é amplamente utilizado em problemas de classificação e regressão. Sua capacidade de lidar diretamente com dados categóricos e a interpretabilidade proporcionada pela análise de características importantes o tornam uma ferramenta poderosa para análise e previsão de dados. |Essa modelagem foi aplicada com a vetorização Word2Vec, tendo como resultados uma acurácia de 60% tanto do CBOW quanto do corpus.
+   
 2. Random Forest: (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/randomForest.ipynb)
 
    O Random Forest é um algoritmo de aprendizado de máquina que faz parte da família dos métodos de ensemble. Ele combina a construção de várias árvores de decisão independentes para formar um "floresta", em que cada árvore contribui com sua previsão individual. No caso do Random Forest, a previsão final é obtida através de uma média ou votação das previsões individuais das árvores. Esse modelo é particularmente útil quando há um grande número de características (features) e algumas delas são mais importantes do que outras na tomada de decisões. Além disso, ele tem a capacidade de lidar com dados ausentes, outliers e overfitting.
 
-**
-    Uso do Random Forest em PLN para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual:**
+**Uso do Random Forest em PLN para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual:**
 O Random Forest é uma escolha interessante para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual por diversas razões. Primeiramente, o modelo é capaz de lidar com uma grande quantidade de dados, o que é essencial em plataformas de mídia social onde há uma quantidade significativa de comentários dos clientes. Além disso, o Random Forest pode ser treinado para realizar tarefas de classificação, como a análise de sentimento, em que os comentários dos clientes são classificados como positivos, negativos ou neutros. Isso permite que o BTG Pactual obtenha uma compreensão abrangente dos sentimentos dos clientes em relação aos seus produtos, serviços ou campanhas de marketing, auxiliando na tomada de decisões estratégicas. Outra vantagem do Random Forest é sua capacidade de lidar com características (features) relevantes para a análise de sentimento. Ele é capaz de identificar quais características são mais importantes na determinação dos sentimentos expressos nos comentários, permitindo que o BTG Pactual concentre seus esforços em áreas específicas para melhorar a satisfação do cliente. Por fim, o Random Forest também é robusto em relação a outliers e dados ausentes, o que é comum em comentários de mídias sociais. Isso significa que o modelo é capaz de lidar com a natureza variada e ruidosa dos dados coletados no Instagram do BTG Pactual, garantindo resultados mais confiáveis e precisos na análise de sentimentos. O modelo foi aplicado em diferentes vetorizações e com as duas bases, obtendo os seguintes resultados:
 
 **Bag of Words:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_bag_of_words.ipynb)
@@ -190,6 +190,29 @@ O Random Forest é uma escolha interessante para compreender os sentimentos por 
    **TF-IDF:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_tfidf.ipynb)
 
    ![1686535650976](image/README/1686535650976.png)
+   
+   
+4. Rede Neural Long Short-Term Memory (LSTM):
+
+A rede neural do tipo LSTM tem o nome em inglês de neural network long short-term memory traduzindo para o português com uma tradução livre obtem-se : de Rede Neural de memória de curto longo prazo. Assim, são redes capazes de obter insights sobre dependências entre sequências de dados ou análises de dados a partir de padrões temporais. Com isso, é uma arquitetura que tem aptidão para o processamento de linguagem natural.
+
+**Adentrando mais a fundo no funcionamento do algoritmo.**
+Nota-se os detalhes do peculiares do LSTM que é a capacidade da rede enviar dados da camada de output para os nós anteriores o que não existe em outras arquiteturas. 
+Assim o modelo começa recebendo um dado e o mesmo vai passando para os novos nós da rede, esse número de nós é definido como números de camadas da rede. Ao chegar na camada final o modelo considera os dados de saída com o resultado fornecido e vai reajustando os pesos nos nós passados até atingir o máximo de acerto possível. 
+
+**Aplicação do modelo**
+Com o modelo já explicado, foi aplicado o mesmo no dataset tratado com o word2vec na base [corpus](https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_word2vec_full.ipynb) e os seguintes resultados foram obtidos: 
+
+- Acurácia 56 % 
+- Uma matriz de confusão  
+
+
+Com isso a rede neural não se mostrou tão boa para lidar com o modelo word2vec nesse caso específico.
+
+Para acessar todo o notebook dessa parte acesse o seguinte [caderno]((https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/embedding_layers.ipynb)
+
+   
+  
 
 ### Comparações
 
