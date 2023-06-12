@@ -138,40 +138,96 @@ Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
 
 ## (Sprint 4) Documentação da proposta de uma nova modelagem
 
-Nessa Sprint, foram ajustados pontos do pré-processamento, com o fim de otimizar os resultados obtidos com os modelos de processamento de linguagem natural obtidos na Sprint anterior, analisar e comparar diferentes métricas destes, além de testar novas modelagens, tanto aplicando Bag of Words, quando Word2Vec. Por fim, foi feita a prototipação da interface visual (dashboard) que será implementada na próxima Sprint.
+    Nessa Sprint, foram ajustados pontos do pré-processamento, com o fim de otimizar os resultados obtidos com os modelos de processamento de linguagem natural obtidos na Sprint anterior, analisar e comparar diferentes métricas destes, além de testar novas modelagens, tanto aplicando Bag of Words, quando Word2Vec. Por fim, foi feita a prototipação da interface visual (dashboard) que será implementada na próxima Sprint.
 
 ### Ajustes do pré processamento
 
-Após as análises inciais dos dados, foi constatado um alto número de dados classificados como neutros, principalmente os que possuem apenas emojis. Portanto, foi feita uma reclassificação à mão dos dados, em que -1 eram negativos, 0, neutros e 1, positivos. Após essa reclassificação, foi utilizada a nova base nos modelos Naive Bayes e Random Forest para Bag of Words e Naive Bayes, CatBoost e Rede Neural para Word2Vec. Os resultados dos modelos são explicitados na seção de comparação de modelos.
+    Após as análises inciais dos dados, foi constatado um alto número de dados classificados como neutros, principalmente os que possuem apenas emojis. Portanto, foi feita uma reclassificação à mão dos dados, em que -1 eram negativos, 0, neutros e 1, positivos. Após essa reclassificação, foi utilizada a nova base nos modelos Naive Bayes e Random Forest para Bag of Words e Naive Bayes, CatBoost e Rede Neural para Word2Vec. Os resultados dos modelos são explicitados na seção de comparação de modelos.
 
-No processo de reclassificação do target, percebeu-se a alta exclusão de palavras importantes para o modelo, como 'sim', 'muito', 'excelente', devido o uso da biblioteca de stopwords e, portanto, optou-se por deixar de usar a biblioteca do NLTK e utilizar um dicionário manual de stop words, além do dicionário de emojis que foi personalizado e leva em consideração todos os emojis relevantes para a base de dados. 
+![1686535908215](image/README/1686535908215.png)
+
+    Proporção de sentimentos na base fornecida pelo BTG
+
+![1686535956092](image/README/1686535956092.png)
+
+    Proporção de sentimentos na base revista pelo grupo
+
+    No processo de reclassificação do target, percebeu-se a alta exclusão de palavras importantes para o modelo, como 'sim', 'muito', 'excelente', devido o uso da biblioteca de stopwords e, portanto, optou-se por deixar de usar a biblioteca do NLTK e utilizar um dicionário manual de stop words, além do dicionário de emojis que foi personalizado e leva em consideração todos os emojis relevantes para a base de dados.
 
 ### Modelos
 
-1. CatBoost:
-O CatBoost é uma biblioteca de gradient boosting que lida eficientemente com dados categóricos. Ele oferece uma implementação de alta performance, eliminando a necessidade de pré-processamento adicional. Com recursos como tratamento de valores ausentes e otimização automática de hiperparâmetros, é amplamente utilizado em problemas de classificação e regressão. Sua capacidade de lidar diretamente com dados categóricos e a interpretabilidade proporcionada pela análise de características importantes o tornam uma ferramenta poderosa para análise e previsão de dados.O modelo que utilizou o CBOW obteve uma acurácia de 60% e com o corpus foi também de 60%.
+    Além dos já utilizados anteriormente na sprint passada, novas propostas de modelos foram implementadas, com o fim de testes. As modelagens feitas utilizaram tanto a base inicial fornecida pelo parceiro, quanto a base com os sentimentos revistos pelo grupo e, as duas, com as implementações mais recentes do pré processamento. Optou-se aplicar as duas bases distintas para analisar as diferenças das classificações.
 
-2. Random Forest:
+1. CatBoost: ()
+   O CatBoost é uma biblioteca de gradient boosting que lida eficientemente com dados categóricos. Ele oferece uma implementação de alta performance, eliminando a necessidade de pré-processamento adicional. Com recursos como tratamento de valores ausentes e otimização automática de hiperparâmetros, é amplamente utilizado em problemas de classificação e regressão. Sua capacidade de lidar diretamente com dados categóricos e a interpretabilidade proporcionada pela análise de características importantes o tornam uma ferramenta poderosa para análise e previsão de dados. |Essa modelagem foi aplicada com a vetorização Word2Vec, tendo como resultados uma acurácia de 60% tanto do CBOW quanto do corpus.
+2. Random Forest: ()
 
-**Definição:**
-O Random Forest é um algoritmo de aprendizado de máquina que faz parte da família dos métodos de ensemble. Ele combina a construção de várias árvores de decisão independentes para formar um "floresta", em que cada árvore contribui com sua previsão individual. No caso do Random Forest, a previsão final é obtida através de uma média ou votação das previsões individuais das árvores. O Random Forest é caracterizado pela sua capacidade de lidar com conjuntos de dados complexos e realizar tanto tarefas de classificação quanto de regressão. Esse modelo é particularmente útil quando há um grande número de características (features) e algumas delas são mais importantes do que outras na tomada de decisões. Além disso, ele tem a capacidade de lidar com dados ausentes, outliers e overfitting, o que o torna uma escolha popular em diversos problemas de aprendizado de máquina. 
+   O Random Forest é um algoritmo de aprendizado de máquina que faz parte da família dos métodos de ensemble. Ele combina a construção de várias árvores de decisão independentes para formar um "floresta", em que cada árvore contribui com sua previsão individual. No caso do Random Forest, a previsão final é obtida através de uma média ou votação das previsões individuais das árvores. Esse modelo é particularmente útil quando há um grande número de características (features) e algumas delas são mais importantes do que outras na tomada de decisões. Além disso, ele tem a capacidade de lidar com dados ausentes, outliers e overfitting.
 
-**Uso do Random Forest em PLN para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual:**
-O Random Forest é uma escolha interessante para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual por várias razões. Primeiramente, o modelo é capaz de lidar com uma grande quantidade de dados, o que é essencial em plataformas de mídia social onde há uma quantidade significativa de comentários dos clientes. Além disso, o Random Forest pode ser treinado para realizar tarefas de classificação, como a análise de sentimento, em que os comentários dos clientes são classificados como positivos, negativos ou neutros. Isso permite que o BTG Pactual obtenha uma compreensão abrangente dos sentimentos dos clientes em relação aos seus produtos, serviços ou campanhas de marketing, auxiliando na tomada de decisões estratégicas. Outra vantagem do Random Forest é sua capacidade de lidar com características (features) relevantes para a análise de sentimento. Ele é capaz de identificar quais características são mais importantes na determinação dos sentimentos expressos nos comentários, permitindo que o BTG Pactual concentre seus esforços em áreas específicas para melhorar a satisfação do cliente. Por fim, o Random Forest também é robusto em relação a outliers e dados ausentes, o que é comum em comentários de mídias sociais. Isso significa que o modelo é capaz de lidar com a natureza variada e ruidosa dos dados coletados no Instagram do BTG Pactual, garantindo resultados mais confiáveis e precisos na análise de sentimentos.
+**
+    Uso do Random Forest em PLN para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual:**
+O Random Forest é uma escolha interessante para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual por diversas razões. Primeiramente, o modelo é capaz de lidar com uma grande quantidade de dados, o que é essencial em plataformas de mídia social onde há uma quantidade significativa de comentários dos clientes. Além disso, o Random Forest pode ser treinado para realizar tarefas de classificação, como a análise de sentimento, em que os comentários dos clientes são classificados como positivos, negativos ou neutros. Isso permite que o BTG Pactual obtenha uma compreensão abrangente dos sentimentos dos clientes em relação aos seus produtos, serviços ou campanhas de marketing, auxiliando na tomada de decisões estratégicas. Outra vantagem do Random Forest é sua capacidade de lidar com características (features) relevantes para a análise de sentimento. Ele é capaz de identificar quais características são mais importantes na determinação dos sentimentos expressos nos comentários, permitindo que o BTG Pactual concentre seus esforços em áreas específicas para melhorar a satisfação do cliente. Por fim, o Random Forest também é robusto em relação a outliers e dados ausentes, o que é comum em comentários de mídias sociais. Isso significa que o modelo é capaz de lidar com a natureza variada e ruidosa dos dados coletados no Instagram do BTG Pactual, garantindo resultados mais confiáveis e precisos na análise de sentimentos. O modelo foi aplicado em diferentes vetorizações e com as duas bases, obtendo os seguintes resultados:
 
-**Resultados das métricas do modelo no projeto:**
-- Acurácia: 71%
-- Recall: 69%
-- Precisão: 70%
-- F1-Score: 69%
+**Bag of Words:**
 
-### Métricas e comparações
+- Base original: Recall de 70%
+- Base de sentimentos revistos: Recall de 69%
 
-Também foi realizado uma prototipagem da interface visual (darshboard) no Figma. É possível acessá-la no link a seguir:
+**TF-IDF:**
+
+* Base original: Recall de 71%
+* Base de sentimentos revistos: Recall de 70%
+
+3. Naive Bayes ()
+   O modelo naive bayes é considerado o mais simples dentre os existentes para classificação. Ele possui distintas aplicações, podendo ser aplicado em resultados binomais (booleanos) com distribuição de Bernoulli, multinominais (mais de 2 resultados possíveis), ou de regressão, com a distribuição Gaussiana. Ele também permite diversos ajustes de hiperparâmetros e divisões entre treino e teste.
+   Após a revisão do target de sentimento da base e dos ajustes finais do pré processamento, o modelo de classificação multinominal foi aplicado novamente com distintas vetorizações e obteve os seguintes resultados:
+   **Bag of Words:**
+
+   ![1686535616617](image/README/1686535616617.png)
+
+   **TF-IDF:**
+
+   ![1686535650976](image/README/1686535650976.png)
+
+### Comparações
+
+    Todas as comparações podem ser vistas no seguinte notebook:
+
+    Após as análises dos resultados dos modelos, priorizando o recall, mas, principalmente, a matriz de confusão, que aponta os falsos negativos e falsos positivos, os dois melhores modelos de cada vetorização foram escolhidos para análises mais profundas e, por fim, escolhido o modelo final a ser utilizado.
+
+**Bag of Words:**
+
+![1686536205290](image/README/1686536205290.png)
+
+É possível ver, pela imagem acima, que o modelo Naive Bayes simples obteve um alto acerto de comentários negativos, ou seja, do principal objetivo do parceiro com a solução.
+
+![1686536265317](image/README/1686536265317.png)
+
+O mesmo ocorre quando aplicado o Naive Bayes com Grid Search e Cross Validation, entretanto, apesar da base original apresentar maior recall (71%), o acerto de comentários negativos foi menor, pois tende a acertar para neutros. 
+
+**TF-IDF:**
+
+![1686536571756](image/README/1686536571756.png)
+
+O cenário se repete com o TF-IDF, em que a base original tende para comentários neutros, mesmo apresentando um recall maior.
+
+![1686536621327](image/README/1686536621327.png)
+
+E com o Random Forest o resultado foi muito semelhante ao do Naive Bayes.
+
+Por fim, para a escolha do modelo final, foi levado em consideração o tempo de resposta do modelo, sendo que o modelo Naive Bayes Simples com Bag of Words, utilizando a base de sentimentos revistos, teve tempo de resposta de 0,18 segundos, com 73% de recall e o modelo Naive Bayes com Grid Search e Cross Validation  com Bag of Words, utilizando a base original teve tempo de resposta de 0,35 segundos e, portanto, o primeiro foi a escolha final. O modelo foi exportado utilizando a biblioteca Pickle (https://docs.python.org/3/library/pickle.html) e testado com novos dados retirados dos comentários do perfil do BTG Pactual (@btgpacutal).
+
+Os novos dados passam por um pipeline de execução, que realiza o pré processamento(tratamento de emojis, minuscularização das letras, tokenziação e remoção de stop words), vetoriza a frase e, por fim, aplica o modelo. Abaixo é possível ver os resultados, sendo 0 negativo, 1, neutro e 2, positivo.
+
+![1686536957430](image/README/1686536957430.png)
+
+### Interface
+
+    Também foi realizado uma prototipagem da interface visual (darshboard) no Figma. É possível acessá-la no link a seguir:
 
 https://www.figma.com/file/LDHmzOUuwnzw0vU3GwguaQ/Untitled?type=design&node-id=0%3A1&t=NR6Dhc0ubyPg7zAn-1
 
-![1685723491170](image/README/1685723491170.png)
+![1686535804649](image/README/1686535804649.png)
 
 A interface foi projetada pensando nos seguintes pontos:
 
@@ -181,7 +237,13 @@ A interface foi projetada pensando nos seguintes pontos:
 * Top perfis engajados: seguindo a própria interface já existente do stakeholder, optou-se por manter essa funcionalidade com o intúito de oferecer mais insights sobre o público, quem mais engaja, positiva ou negativamente e
 * Sentimento: com um gráfico que mostra a parcela de sentimentos dos comentários e dá destaque aos negativos, que devem ser tratados, mas também aponta o principal sentimento percebido naquela campanha e a quantidade de comentários do post analisado.
 
-Esse design permite sua adaptação para demais redes sociais, visto que as análises não seguem um padrão específico de uma única rede, permitindo sua versatilidade.
+    Esse design permite sua adaptação para demais redes sociais, visto que as análises não seguem um padrão específico de uma única rede, permitindo sua versatilidade.
+
+#### Web Scraping
+
+    Foi projetado um algoritimo de web scraping para coletar dados de comentários em posts, fornecendo uma solução automatizada e eficiente para obter informações relevantes. Ao inserir o link de um post, o algoritmo é capaz de extrair os comentários associados a ele, simplificando o processo de coleta de dados e permitindo uma análise mais aprofundada das interações dos usuários.
+
+    No entanto, é recomendado que o parceiro considere a substituição desse algoritmo pela API do Instagram, visando uma integração mais direta e alinhada com as diretrizes da plataforma. A API do Instagram oferece uma interface oficial que permite acessar os dados de forma segura e em conformidade com as políticas estabelecidas. Ao utilizar a API, é possível obter os comentários de um post de maneira mais eficiente, eliminando a necessidade de desenvolver e manter um algoritmo personalizado de web scraping. Essa abordagem simplifica o processo, otimiza o tempo e garante uma coleta de dados confiável.
 
 ## (Sprint 5) Apresentação Final
 
