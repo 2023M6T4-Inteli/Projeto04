@@ -154,13 +154,15 @@ Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
 
     No processo de reclassificação do target, percebeu-se a alta exclusão de palavras importantes para o modelo, como 'sim', 'muito', 'excelente', devido o uso da biblioteca de stopwords e, portanto, optou-se por deixar de usar a biblioteca do NLTK e utilizar um dicionário manual de stop words, além do dicionário de emojis que foi personalizado e leva em consideração todos os emojis relevantes para a base de dados.
 
+    Por fim, foi aplicada uma nova vetorização, a TF-IDF que, em resumo, considera tanto a frequência das palavras nos documentos quanto a raridade das palavras em todo o conjunto de documentos. Essa abordagem ajuda a capturar melhor a importância relativa das palavras em um documento específico, enquanto a abordagem Bag of Words trata todas as palavras como igualmente importantes, sem considerar sua raridade ou distribuição em outros documentos. Essa vetorização foi aplicada nos mesmos modelos que o Bag of Words e pode ser vista no seguinte notebook: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_tfidf.ipynb
+
 ### Modelos
 
     Além dos já utilizados anteriormente na sprint passada, novas propostas de modelos foram implementadas, com o fim de testes. As modelagens feitas utilizaram tanto a base inicial fornecida pelo parceiro, quanto a base com os sentimentos revistos pelo grupo e, as duas, com as implementações mais recentes do pré processamento. Optou-se aplicar as duas bases distintas para analisar as diferenças das classificações.
 
-1. CatBoost: ()
+1. CatBoost: (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/catboost.ipynb)
    O CatBoost é uma biblioteca de gradient boosting que lida eficientemente com dados categóricos. Ele oferece uma implementação de alta performance, eliminando a necessidade de pré-processamento adicional. Com recursos como tratamento de valores ausentes e otimização automática de hiperparâmetros, é amplamente utilizado em problemas de classificação e regressão. Sua capacidade de lidar diretamente com dados categóricos e a interpretabilidade proporcionada pela análise de características importantes o tornam uma ferramenta poderosa para análise e previsão de dados. |Essa modelagem foi aplicada com a vetorização Word2Vec, tendo como resultados uma acurácia de 60% tanto do CBOW quanto do corpus.
-2. Random Forest: ()
+2. Random Forest: (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/randomForest.ipynb)
 
    O Random Forest é um algoritmo de aprendizado de máquina que faz parte da família dos métodos de ensemble. Ele combina a construção de várias árvores de decisão independentes para formar um "floresta", em que cada árvore contribui com sua previsão individual. No caso do Random Forest, a previsão final é obtida através de uma média ou votação das previsões individuais das árvores. Esse modelo é particularmente útil quando há um grande número de características (features) e algumas delas são mais importantes do que outras na tomada de decisões. Além disso, ele tem a capacidade de lidar com dados ausentes, outliers e overfitting.
 
@@ -168,30 +170,30 @@ Colocar o link do artefato (deve estar na pasta src do repositório do projeto).
     Uso do Random Forest em PLN para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual:**
 O Random Forest é uma escolha interessante para compreender os sentimentos por trás dos comentários dos clientes no Instagram do BTG Pactual por diversas razões. Primeiramente, o modelo é capaz de lidar com uma grande quantidade de dados, o que é essencial em plataformas de mídia social onde há uma quantidade significativa de comentários dos clientes. Além disso, o Random Forest pode ser treinado para realizar tarefas de classificação, como a análise de sentimento, em que os comentários dos clientes são classificados como positivos, negativos ou neutros. Isso permite que o BTG Pactual obtenha uma compreensão abrangente dos sentimentos dos clientes em relação aos seus produtos, serviços ou campanhas de marketing, auxiliando na tomada de decisões estratégicas. Outra vantagem do Random Forest é sua capacidade de lidar com características (features) relevantes para a análise de sentimento. Ele é capaz de identificar quais características são mais importantes na determinação dos sentimentos expressos nos comentários, permitindo que o BTG Pactual concentre seus esforços em áreas específicas para melhorar a satisfação do cliente. Por fim, o Random Forest também é robusto em relação a outliers e dados ausentes, o que é comum em comentários de mídias sociais. Isso significa que o modelo é capaz de lidar com a natureza variada e ruidosa dos dados coletados no Instagram do BTG Pactual, garantindo resultados mais confiáveis e precisos na análise de sentimentos. O modelo foi aplicado em diferentes vetorizações e com as duas bases, obtendo os seguintes resultados:
 
-**Bag of Words:**
+**Bag of Words:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_bag_of_words.ipynb)
 
 - Base original: Recall de 70%
 - Base de sentimentos revistos: Recall de 69%
 
-**TF-IDF:**
+**TF-IDF:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_tfidf.ipynb)
 
 * Base original: Recall de 71%
 * Base de sentimentos revistos: Recall de 70%
 
-3. Naive Bayes ()
+3. Naive Bayes
    O modelo naive bayes é considerado o mais simples dentre os existentes para classificação. Ele possui distintas aplicações, podendo ser aplicado em resultados binomais (booleanos) com distribuição de Bernoulli, multinominais (mais de 2 resultados possíveis), ou de regressão, com a distribuição Gaussiana. Ele também permite diversos ajustes de hiperparâmetros e divisões entre treino e teste.
    Após a revisão do target de sentimento da base e dos ajustes finais do pré processamento, o modelo de classificação multinominal foi aplicado novamente com distintas vetorizações e obteve os seguintes resultados:
-   **Bag of Words:**
+   **Bag of Words:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_bag_of_words.ipynb)
 
    ![1686535616617](image/README/1686535616617.png)
 
-   **TF-IDF:**
+   **TF-IDF:** (https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/modelos_tfidf.ipynb)
 
    ![1686535650976](image/README/1686535650976.png)
 
 ### Comparações
 
-    Todas as comparações podem ser vistas no seguinte notebook:
+    Todas as comparações podem ser vistas no seguinte notebook: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/An%C3%A1lises_Sprint_4.ipynb
 
     Após as análises dos resultados dos modelos, priorizando o recall, mas, principalmente, a matriz de confusão, que aponta os falsos negativos e falsos positivos, os dois melhores modelos de cada vetorização foram escolhidos para análises mais profundas e, por fim, escolhido o modelo final a ser utilizado.
 
