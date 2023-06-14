@@ -2,8 +2,6 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import word_tokenize
 import pickle
-import pandas as pd
-import numpy as np
 
 
 # Abrindo o dicionário de dados que foram feitos o BoW
@@ -13,15 +11,6 @@ with open('dict_bow.pkl', 'rb') as dict_bow:
 # Abrindo o modelo 
 with open('modelo_naive_bayes.pkl', 'rb') as model_nb:
     model = pickle.load(model_nb)
-
-# Definindo novas váriaveis para carregar o modelo e dict
-dict_bow = dictionary_custom
-model_bow = model
-
-def vetorizar_frase(frase, dictionary):
-    vectorizer = CountVectorizer(vocabulary=dictionary)
-    frase_vetorizada = vectorizer.transform([frase])
-    return frase_vetorizada
 
 # Dicionários de emoji 
 emoji_dict = {
@@ -102,6 +91,18 @@ emoji_dict = {
     '🤑': 'dinheiro ',
 }
 
+
+# Definindo novas váriaveis para carregar o modelo e dict
+dict_bow = dictionary_custom
+model_bow = model
+
+def vectorize_phrase(frase, dictionary):
+    vectorizer = CountVectorizer(vocabulary=dictionary)
+    frase_vetorizada = vectorizer.transform([frase])
+    return frase_vetorizada
+
+
+
 # Função que converte todos os emojis 
 def emoji_to_word(text):
     for emoji_code, emoji_word in emoji_dict.items():
@@ -122,31 +123,25 @@ def tokenize_text(text):
     return tokens
 
 
-# Carregar o modelo
-with open('modelo_naive_bayes.pkl', 'rb') as file:
-    modelo_carregado = pickle.load(file)
-
 #pipeline de pré processamento:
 def pipeline(entrada):
-    entrada_emoji = emoji_to_word(entrada)
-    print(entrada_emoji,'emoji')
-    texto_processado = tokenize_text(entrada_emoji)
-    print(texto_processado,'tokenizacao')
-    vetor = vetorizar_frase(' '.join(texto_processado), dict_bow)
-    print(vetor,'vetorizacao')
-    predicao = modelo_carregado.predict(vetor)
-    print(predicao,'prediction')
-    return predicao
+    emoji_input = emoji_to_word(entrada)
+    print(emoji_input,'emoji')
+    text_processing = tokenize_text(emoji_input)
+    print(text_processing,'tokenizacao')
+    vector = vectorize_phrase(' '.join(text_processing), dict_bow)
+    print(vector,'vetorizacao')
+    prediction = model.predict(vector)
+    print(prediction,'prediction')
+    return prediction
 
 def main():
 
     # Recebe o input do usuario 
-    x = ("triste porque o banco reduziu meu crédito 😠😠😠😠")
-    entrada1 = 'Melhor desempenho dentre todas as carteiras do mercado financeiro! Vamos para cima!!!🚀📊'
-    entrada2 = 'não tem mais a opção atendimento via chat no app, só via email 🤔 preciso de ajuda'
+    entrada2 = 'Melhor desempenho de carteira '
 
     # Output geral 
-    feeling_of_text = pipeline(entrada1)
+    feeling_of_text = pipeline(entrada2)
 
 
     # Print the result
