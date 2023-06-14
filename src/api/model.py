@@ -7,20 +7,21 @@ import numpy as np
 
 
 # Abrindo o dicionário de dados que foram feitos o BoW
-with open('dictionary.pickle', 'rb') as file:
-    dictionary_custom = pickle.load(file)
+with open('dict_bow.pkl', 'rb') as dict_bow:
+    dictionary_custom = pickle.load(dict_bow)
 
 # Abrindo o modelo 
 with open('modelo_naive_bayes.pkl', 'rb') as model_nb:
     model = pickle.load(model_nb)
 
+# Definindo novas váriaveis para carregar o modelo e dict
+dict_bow = dictionary_custom
+model_bow = model
 
-
-# Função que vetoriza o input
-def vectorize_input(phrase, dictionary):
+def vetorizar_frase(frase, dictionary):
     vectorizer = CountVectorizer(vocabulary=dictionary)
-    vectorized_input = vectorizer.transform([phrase])
-    return vectorized_input
+    frase_vetorizada = vectorizer.transform([frase])
+    return frase_vetorizada
 
 # Dicionários de emoji 
 emoji_dict = {
@@ -120,45 +121,36 @@ def tokenize_text(text):
     # Retorna o resultado da frase tokenizada, sem stopWords
     return tokens
 
-# Função que realiza a predição com o modelo naive bayes 
-def predict_feeling(text):
-    output = model.predict(text)
 
+# Carregar o modelo
+with open('modelo_naive_bayes.pkl', 'rb') as file:
+    modelo_carregado = pickle.load(file)
 
-# Função que realiza todas as etapas e retorna o sentimento 
-def pipeline(text_user):
-    emoji_translation = emoji_to_word(text_user)
-    processed_text = tokenize_text(emoji_translation)
-    vector_input = vectorize_input(''.join(processed_text),dictionary_custom)
-    prediction = model.predict(vector_input)
-    return prediction
+#pipeline de pré processamento:
+def pipeline(entrada):
+    entrada_emoji = emoji_to_word(entrada)
+    print(entrada_emoji,'emoji')
+    texto_processado = tokenize_text(entrada_emoji)
+    print(texto_processado,'tokenizacao')
+    vetor = vetorizar_frase(' '.join(texto_processado), dict_bow)
+    print(vetor,'vetorizacao')
+    predicao = modelo_carregado.predict(vetor)
+    print(predicao,'prediction')
+    return predicao
 
 def main():
-    # Abrindo o modelo 
-    with open('modelo_naive_bayes.pkl', 'rb') as model_nb:
-        model = pickle.load(model_nb)
-
 
     # Recebe o input do usuario 
     x = ("triste porque o banco reduziu meu crédito 😠😠😠😠")
     entrada1 = 'Melhor desempenho dentre todas as carteiras do mercado financeiro! Vamos para cima!!!🚀📊'
     entrada2 = 'não tem mais a opção atendimento via chat no app, só via email 🤔 preciso de ajuda'
 
-    # Output da vetorização
-    output_vec = vectorize_input(entrada2,dictionary_custom)
-
-    # Output da função que transforma os emojis 
-    output_emoji = emoji_to_word(x)
-
-    # Output da tokenização 
-    output_tokenization = tokenize_text(x)
-
     # Output geral 
-    feeling_of_text = pipeline(entrada2)
+    feeling_of_text = pipeline(entrada1)
 
 
     # Print the result
-    print(output_vec)
+    print(feeling_of_text)
 
 
 if __name__ == "__main__":
