@@ -1,0 +1,4 @@
+flask
+uvicorn==0.22.0
+dotenv
+

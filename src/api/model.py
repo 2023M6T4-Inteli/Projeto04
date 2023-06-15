@@ -2,6 +2,7 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import word_tokenize
 import pickle
+import json 
 
 
 # Abrindo o dicionário de dados que foram feitos o BoW
@@ -122,23 +123,33 @@ def tokenize_text(text):
     # Retorna o resultado da frase tokenizada, sem stopWords
     return tokens
 
+# Função que realiza a predição 
+def prediction_output(vector):
+    negative = "Negativo"
+    neutral = "Neutro"
+    positive = "Positivo"
+    output_pred = model.predict(vector)
+    if output_pred == 0:
+        return negative
+    if output_pred == 1:
+        return neutral
+    else:
+        return positive
 
 #pipeline de pré processamento:
 def pipeline(entrada):
     emoji_input = emoji_to_word(entrada)
-    print(emoji_input,'emoji')
     text_processing = tokenize_text(emoji_input)
-    print(text_processing,'tokenizacao')
     vector = vectorize_phrase(' '.join(text_processing), dict_bow)
-    print(vector,'vetorizacao')
-    prediction = model.predict(vector)
-    print(prediction,'prediction')
+    prediction = prediction_output(vector)
     return prediction
+
+
 
 def main():
 
     # Recebe o input do usuario 
-    entrada2 = 'Melhor desempenho de carteira '
+    entrada2 = 'Pior desempenho de carteira '
 
     # Output geral 
     feeling_of_text = pipeline(entrada2)
