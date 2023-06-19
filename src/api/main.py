@@ -199,6 +199,7 @@ def vetorizar_frases(frases, dictionary):
 
 # Rotas da api 
 
+# Essa é a rota que permite, enviar um json contendo a sequência de comentários e o modelo retorna a classificação dos mesmos.
 @app.route('/classificar', methods=['POST'])
 def classificar():
     dados = request.json
@@ -216,7 +217,7 @@ def classificar():
 
     return json.dumps(predicoes_palavras)
 
-# Conta a proporção de quantos sentimentos há no json
+# Com essa rota é possível obter a a proporção de quantos sentimentos há no json da classificação dos sentimentos
 @app.route('/proporcoes', methods=['POST'])
 def proporcoes():
     predicoes_palavras = request.json
@@ -260,7 +261,7 @@ def nuvem_palavras():
     return jsonify({"imagem_nuvem": imagem_nuvem})
 
 
-# Retorna o top 10 palavras
+# Retorna o top 10 palavras sem contar as stop words 
 @app.route('/top-palavras', methods=['POST'])
 def top_palavras():
     dados = request.json["dados"]
@@ -285,6 +286,7 @@ def top_palavras():
     # Retornar as top 10 palavras em formato JSON
     return jsonify({"top_palavras": top_palavras})
 
+# Essa rota retorna o top 10 pares de palavras que mais se repetem nos comentários 
 @app.route('/maiores-correlacoes', methods=['POST'])
 def maiores_correlacoes():
     dados = request.json["dados"]
@@ -325,7 +327,7 @@ def maiores_correlacoes():
     # Retornar as maiores correlações em formato JSON
     return jsonify({"maiores_correlacoes": maiores_correlacoes})
 
-
+# Rota de teste para ver se o flask está funcionando 
 @app.route('/ping', methods=['GET'])
 def test():
     return ("Pong")
