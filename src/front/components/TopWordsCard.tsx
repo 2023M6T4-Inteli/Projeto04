@@ -10,7 +10,7 @@ interface Props {
     title: string
 }
 
-const Top = ({words, gridClasses, title}: Props) => {
+const TopCard = ({words, gridClasses, title}: Props) => {
 	return (
 		<Card gridClass={gridClasses} title={title}>
 			<div className="flex flex-col gap-2">
@@ -25,4 +25,4 @@ const Top = ({words, gridClasses, title}: Props) => {
 	);
 };
 
-export default Top;
+export default TopCard;

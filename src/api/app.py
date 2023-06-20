@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from flask_cors import CORS
 
 #DICIONÁRIO DE EMOJIS
 emoji_dict = {
@@ -166,6 +167,8 @@ with open('dictionary.pkl', 'rb') as file:
 
 app = Flask(__name__)
 
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 #CLASSIFICAÇÃO DE COMENTÁRIO
 @app.route('/classificar', methods=['POST'])
 def classificar():
@@ -256,6 +259,7 @@ nltk.download('stopwords')
 @app.route('/top-palavras', methods=['POST'])
 def top_palavras():
     dados = request.json["dados"]
+    # print(dados)
 
     # Aplicar a função emoji_to_word aos dados
     dados_processados = emoji_to_word(dados)
@@ -265,6 +269,7 @@ def top_palavras():
 
     # Unir todos os textos em uma única lista de palavras
     palavras = [palavra for texto in dados_processados for palavra in texto]
+    print(palavras)
 
     # Remover stopwords das palavras
     stop_words = set(stopwords.words('portuguese'))
@@ -275,6 +280,8 @@ def top_palavras():
 
     # Obter as top 10 palavras mais frequentes
     top_palavras = contagem_palavras.most_common(10)
+
+    print(top_palavras)
 
     # Retornar as top 10 palavras em formato JSON
     return jsonify({"top_palavras": top_palavras})
@@ -322,4 +329,4 @@ def maiores_correlacoes():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
