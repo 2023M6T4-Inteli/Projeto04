@@ -191,7 +191,13 @@ O Random Forest é uma escolha interessante para compreender os sentimentos por 
 
    ![1686535650976](image/README/1686535650976.png)
 
+   As métricas utilizadas tiveram sua análise baseada no artigo da Microsoft 'How to understand automated machine learning', que diz:
+
+   "Recall é a capacidade de um modelo para detectar todos os exemplos positivos e a precisão é a capacidade de um modelo evitar rotular amostras negativas como positivas. Alguns problemas empresariais podem exigir uma recall mais alta e uma precisão mais alta, dependendo da importância relativa de evitar falsos negativos versus falsos positivos." e também do livro 'Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems', que diz: "A acurácia em machine learning é uma métrica utilizada para medir a taxa de acertos de um modelo de aprendizado de máquina. Ela representa a proporção de predições corretas em relação ao total de predições feitas pelo modelo."
+
 ### Comparações
+
+    Seguindo o artigo da Microsoft 'Results from Machine Learning Models', que diz "A matriz de confusão fornece um meio de avaliar o êxito de um problema de classificação e onde ele comete erros (ou seja, onde ele se torna "confuso").", tal abordagem foi utilizada para comparar os resultados dos modelos.
 
     Todas as comparações podem ser vistas no seguinte notebook: https://github.com/2023M6T4-Inteli/Projeto04/blob/main/src/An%C3%A1lises_Sprint_4.ipynb
 
@@ -205,7 +211,7 @@ O Random Forest é uma escolha interessante para compreender os sentimentos por 
 
 ![1686536265317](image/README/1686536265317.png)
 
-O mesmo ocorre quando aplicado o Naive Bayes com Grid Search e Cross Validation, entretanto, apesar da base original apresentar maior recall (71%), o acerto de comentários negativos foi menor, pois tende a acertar para neutros. 
+O mesmo ocorre quando aplicado o Naive Bayes com Grid Search e Cross Validation, entretanto, apesar da base original apresentar maior recall (71%), o acerto de comentários negativos foi menor, pois tende a acertar para neutros.
 
 **TF-IDF:**
 
@@ -239,7 +245,7 @@ A interface foi projetada pensando nos seguintes pontos:
 * Top perfis engajados: seguindo a própria interface já existente do stakeholder, optou-se por manter essa funcionalidade com o intúito de oferecer mais insights sobre o público, quem mais engaja, positiva ou negativamente e
 * Sentimento: com um gráfico que mostra a parcela de sentimentos dos comentários e dá destaque aos negativos, que devem ser tratados, mas também aponta o principal sentimento percebido naquela campanha e a quantidade de comentários do post analisado.
 
-    Esse design permite sua adaptação para demais redes sociais, visto que as análises não seguem um padrão específico de uma única rede, permitindo sua versatilidade.
+  Esse design permite sua adaptação para demais redes sociais, visto que as análises não seguem um padrão específico de uma única rede, permitindo sua versatilidade.
 
 #### Web Scraping
 
