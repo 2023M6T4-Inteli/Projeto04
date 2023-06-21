@@ -298,6 +298,22 @@ def top_palavras():
     # Retornar as top 10 palavras em formato JSON
     return  top_palavras
 
+#TOP PERFIS
+def top_profiles():
+    dados = request.json
+    authors = dados["authors"]
+    author_count = {}
+
+    for author in authors:
+        if author in author_count:
+            author_count[author] += 1
+        else:
+            author_count[author] = 1
+
+    top_authors = sorted(author_count, key=author_count.get, reverse=True)[:10]
+
+    return jsonify(top_authors)
+
 #CORRELAÇÕES DE PALAVRAS
 def maiores_correlacoes():
     dados = request.json["dados"]
