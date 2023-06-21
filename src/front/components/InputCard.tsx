@@ -6,16 +6,17 @@ import Button from "./Button";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { usePostLink } from "../contexts/postLink";
+import { usePost } from "../contexts/post";
 import JsonData from "../utils/top-palavras.json";
+import axios from "../axios";
 
 const validationSchema = yup.object({
 	linkInput: yup.string().required("Esse campo é obrigatório"),
 });
 
 const InputCard = () => {
-	const { postLink, setPostLink } = usePostLink();
-
+	const { postLink, setPostLink, setPostData, postData } = usePost();
+	console.log(postData)
 	const {
 		register,
 		handleSubmit,
@@ -27,12 +28,17 @@ const InputCard = () => {
 		}
 	});
 
-	const onSubmit = (data: any) => {
+	const onSubmit = async (data: any) => {
 		try {
 			const jsonInfo = JSON.parse(data.linkInput);
 			setPostLink(jsonInfo)
+			const  {data: res} = await axios.post('/post-analysis', jsonInfo)
+			setPostData(res)
+
 		} catch (err) {
 			setPostLink(JsonData);
+			const  {data: res} = await axios.post('/post-analysis', JsonData)
+			setPostData(res)
 		}
 	};
 

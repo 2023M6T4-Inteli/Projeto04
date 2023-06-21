@@ -4,40 +4,25 @@ import WordCloudCard from "../components/WordCloudCard";
 import Top from "../components/TopWordsCard";
 import FeelingsCard from "../components/FeelingsCard";
 import InputCard from "../components/InputCard";
-import { usePostLink } from "../contexts/postLink";
+import { usePost } from "../contexts/post";
 import axios from "../axios";
 
 
 const Home = () => {
-	const { postLink } = usePostLink();
-	const [topWords, setTopWords] = useState([]);
+	const { postLink, postData } = usePost();
 	
-	const getTopWords = async () => {
-		const { data } = await axios.post("/top-palavras", postLink);
-		setTopWords(data.top_palavras);
-	};
+	
 
 	const topWordsMemo = useMemo(
 		() =>
-			topWords.map((word) => {
+		postData?.top_words.map((word: any) => {
 				return {
 					text: word[0],
 					frequency: word[1],
 				};
 			}),
-		[topWords],
+		[postData],
 	);
-
-	const getTopProfiles = async () => {
-		const { data } = await axios.post("/top-palavras", postLink);
-		setTopWords(data);
-	};
-
-	useEffect(() => {
-		if (postLink) {
-			getTopWords();
-		}
-	}, [postLink]);
 
 	const profiles = [
 		{
@@ -49,12 +34,12 @@ const Home = () => {
 		<Layout title={"Home"}>
 			<div className="grid h-full grid-cols-3 grid-rows-6 gap-4">
 				<InputCard />
-				<Top
+				 <Top
 					gridClasses="row-span-3"
 					title="Top 10 palavras"
 					words={topWordsMemo}
 				/>
-				<WordCloudCard />
+				 <WordCloudCard />
 				<Top
 					words={profiles}
 					title="Top perfis engajados"

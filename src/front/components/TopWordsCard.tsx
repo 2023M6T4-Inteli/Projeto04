@@ -14,7 +14,7 @@ const TopCard = ({words, gridClasses, title}: Props) => {
 	return (
 		<Card gridClass={gridClasses} title={title}>
 			<div className="flex flex-col gap-2">
-				{words.map((item) => (
+				{words && words.map((item) => (
 					<div className="flex justify-between rounded-lg bg-[#F6F6F6] px-4 py-2">
 						{item.text} {item.frequency && <span>{item.frequency}</span>}
 					</div>
