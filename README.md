@@ -51,10 +51,10 @@ Acrescentar as informações necessárias para configuração de desenvolvimento
 
 * 0.5.0 - XX/XX/2023
 
-  * Quinta entrega
+  * Quinta entrega: Desenvolvimento da solução UML e deploy do melhor modelo
 * 0.4.0 - XX/XX/2023
 
-  * Quarta entrega
+  * Quarta entrega: Proposta de uma nova modelagem utilizando novas features
 * 0.3.0 - 26/05/2023
 
   * Terceira entrega: Aplicação de word2vec e análise de resultados
