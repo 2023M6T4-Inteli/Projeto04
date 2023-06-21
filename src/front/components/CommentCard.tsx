@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import axios from '../axios';
-import { usePostLink } from '../contexts/postLink';
+import { usePost } from '../contexts/post';
 
 const CommentCard = () => {
-    const { postLink } = usePostLink();
-	const [data, setData] = useState([]);
-
-    const getData = async () => {
-		const { data: res } = await axios.post("/classificar", postLink);
-        console.log(res)
-		setData(res);
-	};
-
-	useEffect(() => {
-		if (postLink) {
-			getData();
-		}
-	}, [postLink]);
+    const { postLink, postData } = usePost();
 
   return (
     <Card gridClass='grow'>
@@ -30,7 +17,7 @@ const CommentCard = () => {
                 </tr>
             </thead>
             <tbody>
-                {data.length > 0 && data.map((item: any) => (
+                {postData?.classificacao.length > 0 && postData?.classificacao.map((item: any) => (
                 <tr key={item.author} className='bg-[#F6F6F6] overflow-hidden rounded-2xl'>
                     <td className='p-2 px-6 max-w-xl'>{item.author}</td>
                     <td className='p-2 px-6 max-w-xl'>{item.comment}</td>

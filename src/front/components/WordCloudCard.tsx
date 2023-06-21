@@ -2,27 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import Image from 'next/image'
 import axios from '../axios';
-import { usePostLink } from '../contexts/postLink';
+import { usePost } from '../contexts/post';
 
 const WordCloudCard = () => {
-  const { postLink} = usePostLink()
-  const [imageLink, setImageLink] = useState(null)
-  
-	const getImageLink = async () => {
-		const { data } = await axios.post("/nuvem-palavras", postLink);
-		setImageLink(data.imagem_nuvem);
-    console.log(data.imagem_nuvem)
-	};
-
-	useEffect(() => {
-		if (postLink) {
-			getImageLink();
-		}
-	}, [postLink]);
-
+  const { postLink, postData} = usePost()
+ 
+	
   return (
     <Card gridClass="row-span-3 col-span-2" title="Nuvem de palavras">
-       {imageLink && <img src={imageLink}  alt="Nuvem de palavras"/>}
+       {postData && postData?.words_cloud && <img src={postData?.words_cloud}  alt="Nuvem de palavras"/>}
     </Card>
 
   )

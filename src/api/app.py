@@ -176,7 +176,6 @@ def servir_imagem(filename):
     return send_from_directory('imagens', filename)
 
 #CLASSIFICAÇÃO DE COMENTÁRIO
-@app.route('/classificar', methods=['POST'])
 def classificar():
     dados = request.json
     # Aplique a função emoji_to_word() aos dados do web scraping
@@ -201,10 +200,9 @@ def classificar():
         })
     
 
-    return json.dumps(res)
+    return res
 
 #PROPORÇÃO DOS SENTIMENTOS PELO TOTAL DE COMENTÁRIOS
-@app.route('/proporcoes', methods=['POST'])
 def proporcoes():
     dados = request.json["dados"]
     
@@ -227,10 +225,9 @@ def proporcoes():
     total = len(predicoes)
     proporcoes_percentual = {classe: (count/total) * 100 for classe, count in proporcoes.items()}
     
-    return jsonify(proporcoes_percentual)
+    return proporcoes_percentual
 
 #NUVEM DE PALAVRAS
-@app.route('/nuvem-palavras', methods=['POST'])
 def nuvem_palavras():
     dados = request.json["dados"]
 
@@ -265,14 +262,13 @@ def nuvem_palavras():
     plt.savefig(imagem_nuvem)
 
     # Retornar o nome do arquivo da imagem
-    return jsonify({"imagem_nuvem": "http://localhost:5000/" + imagem_nuvem})
+    return "http://localhost:5000/" + imagem_nuvem
 
 
 #TOP 10 PALAVRAS
 nltk.download('punkt')
 nltk.download('stopwords')
 
-@app.route('/top-palavras', methods=['POST'])
 def top_palavras():
     dados = request.json["dados"]
     # print(dados)
@@ -300,10 +296,9 @@ def top_palavras():
     print(top_palavras)
 
     # Retornar as top 10 palavras em formato JSON
-    return jsonify({"top_palavras": top_palavras})
+    return  top_palavras
 
 #CORRELAÇÕES DE PALAVRAS
-@app.route('/maiores-correlacoes', methods=['POST'])
 def maiores_correlacoes():
     dados = request.json["dados"]
 
@@ -341,7 +336,23 @@ def maiores_correlacoes():
         maiores_correlacoes[palavra] = palavras_relacionadas
 
     # Retornar as maiores correlações em formato JSON
-    return jsonify({"maiores_correlacoes": maiores_correlacoes})
+    return maiores_correlacoes
+
+@app.route('/post-analysis', methods=['POST'])
+def post_analysis():
+    classificacao = classificar()
+    proportions = proporcoes()
+    print(proportions)
+    top_words = top_palavras()
+    biggest_cor = maiores_correlacoes()
+    words_cloud = nuvem_palavras()
+    return jsonify({
+        'classificacao': classificacao,
+        'proportions': proportions,
+        'top_words': top_words,
+        'biggest_cor': biggest_cor,
+        'words_cloud': words_cloud
+    })
 
 
 if __name__ == '__main__':
