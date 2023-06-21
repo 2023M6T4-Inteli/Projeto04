@@ -2,6 +2,7 @@ import Head from "next/head"
 
 import { Navbar } from "./Navbar"
 import { Footer } from "./Footer"
+import Sidebar from "./Sidebar"
 
 export const Layout = ({
     title,
@@ -19,9 +20,12 @@ export const Layout = ({
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
-            <main className="flex flex-col flex-1 w-full min-h-screen h-full bg-[#C1E4EC]">
-                {children}
-            </main>
+            <div className="flex gap-4 min-h-[100vh] p-8">
+                <Sidebar/> 
+                <div className="grow">
+                    {children}
+                </div>
+            </div>
         </div>
     )
 }
