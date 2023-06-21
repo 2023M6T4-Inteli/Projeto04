@@ -6,6 +6,7 @@ interface Post {
 	top_words: any
 	biggest_cor: any
 	words_cloud: any
+	top_profiles: any
 }
 
 interface PostContextInterface {

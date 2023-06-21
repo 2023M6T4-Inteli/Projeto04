@@ -312,7 +312,7 @@ def top_profiles():
 
     top_authors = sorted(author_count, key=author_count.get, reverse=True)[:10]
 
-    return jsonify(top_authors)
+    return top_authors
 
 #CORRELAÇÕES DE PALAVRAS
 def maiores_correlacoes():
@@ -362,12 +362,14 @@ def post_analysis():
     top_words = top_palavras()
     biggest_cor = maiores_correlacoes()
     words_cloud = nuvem_palavras()
+    profiles = top_profiles()
     return jsonify({
         'classificacao': classificacao,
         'proportions': proportions,
         'top_words': top_words,
         'biggest_cor': biggest_cor,
-        'words_cloud': words_cloud
+        'words_cloud': words_cloud,
+        'top_profiles': profiles
     })
 
 

@@ -24,6 +24,12 @@ const Home = () => {
 		[postData],
 	);
 
+	const topProfilesMemo = useMemo(() => postData?.top_profiles.map((profile: any) => {
+		return {
+			text: profile
+		}
+	}), [postData])
+
 	const profiles = [
 		{
 			text: "Sophia",
@@ -41,7 +47,7 @@ const Home = () => {
 				/>
 				 <WordCloudCard />
 				<Top
-					words={profiles}
+					words={topProfilesMemo}
 					title="Top perfis engajados"
 					gridClasses="row-span-2 col-span-1"
 				/>
