@@ -22,7 +22,11 @@ const InputCard = () => {
 		formState: { errors },
 	} = useForm({
 		resolver: yupResolver(validationSchema),
+		defaultValues: {
+			linkInput: postLink
+		}
 	});
+
 	const onSubmit = (data: any) => {
 		try {
 			const jsonInfo = JSON.parse(data.linkInput);

@@ -14,7 +14,7 @@ const Sidebar = () => {
 		{
 			Icon: MessageCircle,
 			text: "Visão por comentário",
-			link: "/comment",
+			link: "/comments",
 		},
 		{
 			Icon: LogOut,

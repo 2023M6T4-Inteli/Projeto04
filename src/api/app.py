@@ -1,5 +1,5 @@
 #IMPORTAÇÃO DAS BIBLIOTECAS
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 import pickle
 import nltk
 import re
@@ -169,12 +169,19 @@ app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+# Rota para servir os arquivos estáticos da pasta "imagens"
+@app.route('/imagens/<path:filename>', methods=['GET'])
+def servir_imagem(filename):
+    print(filename)
+    return send_from_directory('imagens', filename)
+
 #CLASSIFICAÇÃO DE COMENTÁRIO
 @app.route('/classificar', methods=['POST'])
 def classificar():
     dados = request.json
     # Aplique a função emoji_to_word() aos dados do web scraping
     textos_entrada = dados["dados"]
+    authors_entrada = dados["authors"]
     textos_processados = emoji_to_word(textos_entrada)
     textos_processados = processarTexto(textos_processados)
     frases_vetorizadas = vetorizar_frases(textos_processados, dictionary2)
@@ -185,7 +192,16 @@ def classificar():
     mapeamento_classes = {0: "negativo", 1: "neutro", 2: "positivo"}
     predicoes_palavras = [mapeamento_classes[predicao] for predicao in predicoes]
 
-    return json.dumps(predicoes_palavras)
+    res = []
+    for index in range(len(predicoes_palavras)):
+        res.append({
+            'author': authors_entrada[index],
+            'comment': textos_entrada[index],
+            'predicao': predicoes_palavras[index]
+        })
+    
+
+    return json.dumps(res)
 
 #PROPORÇÃO DOS SENTIMENTOS PELO TOTAL DE COMENTÁRIOS
 @app.route('/proporcoes', methods=['POST'])
@@ -245,11 +261,11 @@ def nuvem_palavras():
     plt.tight_layout()
 
     # Salvar a imagem da nuvem de palavras em um arquivo
-    imagem_nuvem = 'nuvem_palavras.png'
+    imagem_nuvem = 'imagens/nuvem_palavras.png'
     plt.savefig(imagem_nuvem)
 
     # Retornar o nome do arquivo da imagem
-    return jsonify({"imagem_nuvem": imagem_nuvem})
+    return jsonify({"imagem_nuvem": "http://localhost:5000/" + imagem_nuvem})
 
 
 #TOP 10 PALAVRAS
