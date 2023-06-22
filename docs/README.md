@@ -259,8 +259,7 @@ Colocar o link do artefato (deve estar na pasta apresentacoes do repositório do
 
 ## (Sprint 5) Deploy do melhor modelo
 
-Colocar o link dos artefatos (devem estar nas pastas videos e src do repositório do projeto).
-
+Para acessar o vídeo que explica o processo de deploy do melhor modelo e o que foi desenvolvido ao longo das sprints basta clicar [aqui](https://youtu.be/MraHmdM0RPQ)
 ## (Sprint 5) Documentação da Solução
 
 Preencher conforme a descrição do artefato na Adalove.
