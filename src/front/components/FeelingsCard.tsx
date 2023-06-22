@@ -4,6 +4,7 @@ import Chart from "./Chart";
 import { ArrowRightCircle } from "lucide-react";
 import { usePost } from "../contexts/post";
 import axios from "../axios";
+import Link from "next/link";
 
 const FeelingsCard = () => {
 	const { postLink, postData } = usePost();
@@ -24,16 +25,15 @@ const FeelingsCard = () => {
 	}, [postData?.proportions]);
 
 	return (
-		<Card gridClass="row-span-2 col-span-2 h-full" title="Sentimentos">
-			<div className="flex h-60 items-end justify-between gap-4 overflow-hidden">
-				<div className="ml-12 h-80 grow self-center">
+		<Card gridClass="absolute top-[62vh] right-[2vh] w-[calc(100vw-34vw-8vh)] h-[36vh]" title="Sentimentos">
+				<div className="absolute top-0 left-20 h-full ">
 					{postData?.proportions && <Chart data={data} />}
+
 				</div>
-				<div className="flex cursor-pointer items-center gap-2 text-lg font-bold text-[#195AB4] transition-all hover:scale-105">
+				<Link href={"/comments"} className="absolute bottom-0 right-4 translate-y-[-50%] flex float-right cursor-pointer items-center gap-2 text-lg font-bold text-[#195AB4] transition-all hover:scale-105">
 					Ver sentimento por comentário
 					<ArrowRightCircle color="#195AB4" size={30} />
-				</div>
-			</div>
+				</Link>
 		</Card>
 	);
 };

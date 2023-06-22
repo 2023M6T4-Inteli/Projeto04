@@ -26,9 +26,9 @@ const Sidebar = () => {
 	];
 
 	return (
-		<div className="bg-[#195AB4] rounded-lg px-4 py-8 flex flex-col items-center w-[14vw]">
-			<Image src={Logo} alt="Logo" className="mb-8"/>
-			<div className="flex flex-col gap-4 h-full">
+		<div className="bg-[#195AB4] rounded-lg px-4 py-8 flex flex-col items-center w-[14vw] h-[96vh] fixed left-[2vh] top-[2vh]">
+			<Image src={Logo} alt="Logo" className="mb-12"/>
+			<div className="flex flex-col gap-6 h-full">
 				{items.map((item) => (
 					<SidebarItem {...item} />
 				))}

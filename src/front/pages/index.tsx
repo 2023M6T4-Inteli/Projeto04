@@ -38,21 +38,19 @@ const Home = () => {
 
 	return (
 		<Layout title={"Home"}>
-			<div className="grid h-full grid-cols-3 grid-rows-6 gap-4">
-				<InputCard />
-				 <Top
-					gridClasses="row-span-3"
-					title="Top 10 palavras"
-					words={topWordsMemo}
-				/>
-				 <WordCloudCard />
-				<Top
-					words={topProfilesMemo}
-					title="Top perfis engajados"
-					gridClasses="row-span-2 col-span-1"
-				/>
-				<FeelingsCard />
-			</div>
+			<InputCard />
+			<Top
+				gridClasses="absolute top-[20vh] w-[20vw] h-[40vh] left-[calc(14vw+4vh)] overflow-y-auto"
+				title="Top 10 palavras"
+				words={topWordsMemo}
+			/>
+			<WordCloudCard />
+			<Top
+				words={topProfilesMemo}
+				title="Top perfis engajados"
+				gridClasses="absolute top-[62vh] left-[calc(14vw+4vh)] w-[20vw] h-[36vh] overflow-y-auto"
+			/>
+			<FeelingsCard />
 		</Layout>
 	);
 };

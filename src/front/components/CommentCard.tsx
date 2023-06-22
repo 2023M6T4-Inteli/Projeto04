@@ -7,7 +7,7 @@ const CommentCard = () => {
     const { postLink, postData } = usePost();
 
   return (
-    <Card gridClass='grow'>
+    <Card gridClass='absolute top-[20vh] w-[calc(100vw-14vw-6vh)] h-[78vh] left-[calc(14vw+4vh)] overflow-y-auto'>
         <table className='w-full m-auto border-spacing-y-2 border-separate'>
             <thead>
                 <tr className='text-[#195AB4] text-lg'>

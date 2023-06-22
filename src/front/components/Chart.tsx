@@ -25,13 +25,16 @@ const Chart = ({ data }: Props) => {
 	return (
 		<Doughnut
 			data={data}
+			
 			options={{
 				maintainAspectRatio: true,
 				plugins: {
+					
 					legend: {
 						position: "right",
 					},
 				},
+				responsive: true, // Enable responsiveness
 			}}
 		/>
 	);

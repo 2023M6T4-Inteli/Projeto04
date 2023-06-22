@@ -16,7 +16,7 @@ const validationSchema = yup.object({
 
 const InputCard = () => {
 	const { postLink, setPostLink, setPostData, postData } = usePost();
-	console.log(postData)
+
 	const {
 		register,
 		handleSubmit,
@@ -44,7 +44,7 @@ const InputCard = () => {
 
 	return (
 		<Card
-			gridClass="col-span-full row-span-1"
+			gridClass="absolute left-[calc(14vw+4vh)] top-[2vh] w-[calc(100vw-14vw-6vh)]  h-[16vh]"
 			title="Analise os posts do Instagram"
 		>
 			<form

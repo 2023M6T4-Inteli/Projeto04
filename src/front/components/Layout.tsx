@@ -20,11 +20,9 @@ export const Layout = ({
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
-            <div className="flex gap-4 min-h-[100vh] p-8">
+            <div className="relative">
                 <Sidebar/> 
-                <div className="grow">
-                    {children}
-                </div>
+                {children}
             </div>
         </div>
     )

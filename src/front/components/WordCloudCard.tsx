@@ -9,8 +9,10 @@ const WordCloudCard = () => {
  
 	
   return (
-    <Card gridClass="row-span-3 col-span-2" title="Nuvem de palavras">
-       {postData && postData?.words_cloud && <img src={postData?.words_cloud}  alt="Nuvem de palavras"/>}
+    <Card gridClass="absolute left-[calc(34vw+6vh)] top-[20vh] w-[calc(100vw-34vw-8vh)] h-[40vh]" title="Nuvem de palavras">
+		<div className='w-full h-[80%]'>
+			{postData && postData?.words_cloud && <img src={postData?.words_cloud} className='h-full w-full object-contain'  alt="Nuvem de palavras"/>}
+		</div>
     </Card>
 
   )
