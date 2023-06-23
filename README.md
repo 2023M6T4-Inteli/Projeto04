@@ -259,9 +259,9 @@ Pronto, todo o projeto já está rodando localmente e pode ser alterado a vontad
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - XX/XX/2023
+* 0.5.0 - 22/06/2023
   * Quinta entrega: Criação do diagrama UML, criação do frontend, deploy do melhor modelo e construção de api. 
-* 0.4.0 - XX/XX/2023
+* 0.4.0 - 09/06/2023
   * Quarta entrega: Proposta de novas arquiteturas de modelos e modelagem de novas features. 
 * 0.3.0 - 26/05/2023
   * Terceira entrega: Aplicação do modelo word2vec e análise dos resultados.
