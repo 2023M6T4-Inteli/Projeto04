@@ -47,7 +47,6 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ## 🔧 Instalação
 
-Acrescentar as informações necessárias para instalação do projeto, assim como as versões utilizadas (uso do projeto).(Sprint 5)
 Para o correto funcionamento de todos os notebooks são necessárias as seguintes bibliotecas:
 Todas são instaladas com o comando pip install 
 ```python
