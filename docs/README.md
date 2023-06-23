@@ -255,11 +255,12 @@ A interface foi projetada pensando nos seguintes pontos:
 
 ## (Sprint 5) Apresentação Final
 
-Colocar o link do artefato (deve estar na pasta apresentacoes do repositório do projeto).
+Para ter acesso a apresentação final acesse o seguinte [link](https://github.com/2023M6T4-Inteli/Projeto04/blob/main/docs/apresenta%C3%A7%C3%A3o/apresentacao_adTrack.pdf)
 
 ## (Sprint 5) Deploy do melhor modelo
 
-Para acessar o vídeo que explica o processo de deploy do melhor modelo e o que foi desenvolvido ao longo das sprints basta clicar [aqui](https://youtu.be/MraHmdM0RPQ)
+Para acessar o vídeo que explica o processo de deploy do melhor modelo e um teste em tempo real da API acesse o [link](https://youtu.be/MraHmdM0RPQ)
+
 ## (Sprint 5) Documentação da Solução
 
-Preencher conforme a descrição do artefato na Adalove.
+Para ter acesso a versão final de toda documentação e o diagrama UML que está localizado na página 34. Prossiga para o seguinte [link](https://github.com/2023M6T4-Inteli/Projeto04/blob/main/docs/apresenta%C3%A7%C3%A3o/apresentacao_adTrack.pdf)

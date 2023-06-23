@@ -25,19 +25,19 @@ Portanto, para compreender melhor a receptividade de suas campanhas e os insight
 
 ## 📁 Estrutura de pastas
 
-|--> assets`<br>`
-  &emsp;| --> imagens `<br>`
-  &emsp;| --> vídeos `<br>`
-|--> documentos`<br>`
-  &emsp;| --> apresentação `<br>`
-  &emsp;| --> outros `<br>`
-  &emsp;| T4_G5_V1_PLN_Document.pdf`<br>`
-  &emsp;| T4_G5_V1_PLN_Document.docx`<br>`
-|--> src`<br>`
-  &emsp;|--> Código Fonte`<br>`
-  &emsp;|--> Notebook`<br>`
-  &emsp;|--> readme.md`<br>`
-| readme.md`<br>`
+|--> assets<br>
+    &emsp;| --> imagens <br>
+    &emsp;| --> vídeos <br>
+|--> documentos<br>
+    &emsp;| --> apresentação <br>
+    &emsp;| --> outros <br>
+    &emsp;| T4_G5_V1_PLN_Document.pdf<br>
+    &emsp;| T4_G5_V1_PLN_Document.docx<br>
+|--> src<br>
+    &emsp;|--> Código Fonte<br>
+    &emsp;|--> Notebook<br>
+    &emsp;|--> readme.md<br>
+|-->readme.md<br>
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 - `<b>`assets`</b>`: aqui estão os arquivos relacionados a parte gráfica do projeto, ou seja, as imagens e vídeos que os representam (O logo do grupo pode ser adicionado nesta pasta).
@@ -48,28 +48,227 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 ## 🔧 Instalação
 
 Acrescentar as informações necessárias para instalação do projeto, assim como as versões utilizadas (uso do projeto).(Sprint 5)
+Para o correto funcionamento de todos os notebooks são necessárias as seguintes bibliotecas:
+Todas são instaladas com o comando pip install 
+```python
+absl-py                      1.4.0
+aiofiles                     22.1.0
+aiosqlite                    0.19.0
+anyio                        3.6.2
+argon2-cffi                  21.3.0
+argon2-cffi-bindings         21.2.0
+arrow                        1.2.3
+asttokens                    2.2.1
+astunparse                   1.6.3
+attrs                        23.1.0
+autopep8                     2.0.2
+Babel                        2.12.1
+backcall                     0.2.0
+beautifulsoup4               4.12.2
+bleach                       6.0.0
+blinker                      1.6.2
+blis                         0.7.9
+cachetools                   5.3.0
+catalogue                    2.0.8
+certifi                      2022.12.7
+cffi                         1.15.1
+charset-normalizer           3.1.0
+click                        8.1.3
+colorama                     0.4.6
+comm                         0.1.3
+confection                   0.0.4
+contourpy                    1.0.7
+cors                         1.0.1
+cycler                       0.11.0
+cymem                        2.0.7
+debugpy                      1.6.7
+decorator                    5.1.1
+defusedxml                   0.7.1
+emoji                        2.4.0
+et-xmlfile                   1.1.0
+executing                    1.2.0
+fastapi                      0.95.2
+fastjsonschema               2.16.3
+filelock                     3.12.2
+Flask                        2.3.2
+Flask-Cors                   3.0.10
+flatbuffers                  23.3.3
+fonttools                    4.39.4
+fqdn                         1.5.1
+future                       0.18.3
+gast                         0.4.0
+gensim                       4.3.1
+gevent                       22.10.2
+greenlet                     2.0.2
+grpcio                       1.54.0
+h11                          0.14.0
+h5py                         3.8.0
+idna                         3.4
+iniconfig                    2.0.0
+ipykernel                    6.22.0
+ipython                      8.12.0
+ipython-genutils             0.2.0
+ipywidgets                   8.0.6
+isoduration                  20.11.0
+itsdangerous                 2.1.2
+jax                          0.4.8
+jedi                         0.18.2
+Jinja2                       3.1.2
+joblib                       1.2.0
+json5                        0.9.11
+jsonpointer                  2.3
+jsonschema                   4.17.3
+jupyter                      1.0.0
+keras                        2.12.0
+kiwisolver                   1.4.4
+langcodes                    3.3.0
+libclang                     16.0.0
+Markdown                     3.4.3
+matplotlib                   3.7.1
+matplotlib-inline            0.1.6
+mistune                      2.0.5
+ml-dtypes                    0.1.0
+murmurhash                   1.0.9
+nbclassic                    0.5.5
+nbclient                     0.7.3
+nbconvert                    7.3.1
+nbformat                     5.8.0
+nest-asyncio                 1.5.6
+nltk                         3.8.1
+notebook                     6.5.4
+notebook_shim                0.2.2
+numpy                        1.23.5
+openpyxl                     3.1.2
+opt-einsum                   3.3.0
+packaging                    23.1
+pandas                       2.0.1
+pandocfilters                1.5.0
+parso                        0.8.3
+pathy                        0.10.1
+pickleshare                  0.7.5
+Pillow                       9.5.0
+platformdirs                 3.2.0
+pluggy                       1.0.0
+preshed                      3.0.8
+prometheus-client            0.16.0
+prompt-toolkit               3.0.38
+protobuf                     4.22.4
+psutil                       5.9.5
+pt-core-news-lg              3.5.0
+pure-eval                    0.2.2
+pyasn1                       0.5.0
+pyasn1-modules               0.3.0
+pycodestyle                  2.10.0
+pycparser                    2.21
+pydantic                     1.10.7
+Pygments                     2.15.1
+pyparsing                    3.0.9
+pyrsistent                   0.19.3
+PySocks                      1.7.1
+pytest                       7.3.1
+python-dateutil              2.8.2
+python-dotenv                1.0.0
+python-env                   1.0.0
+python-json-logger           2.0.7
+pytz                         2023.3
+pywin32                      306
+pywinpty                     2.0.10
+PyYAML                       6.0
+pyzmq                        25.0.2
+qtconsole                    5.4.2
+QtPy                         2.3.1
+regex                        2023.3.23
+rise                         5.7.1
+rsa                          4.9
+scikit-learn                 1.2.2
+scipy                        1.10.1
+seaborn                      0.12.2
+setuptools                   65.5.0
+six                          1.16.0
+smart-open                   6.3.0
+sniffio                      1.3.0
+soupsieve                    2.4.1
+spacy                        3.5.2
+srsly                        2.4.6
+stack-data                   0.6.2
+starlette                    0.27.0
+tabulate                     0.9.0
+tensorboard                  2.12.3
+tensorboard-data-server      0.7.0
+tensorflow                   2.12.0
+tensorflow-estimator         2.12.0
+tensorflow-intel             2.12.0
+tensorflow-io-gcs-filesystem 0.31.0
+termcolor                    2.3.0
+terminado                    0.17.1
+thinc                        8.1.9
+threadpoolctl                3.1.0
+tinycss2                     1.2.1
+tldextract                   3.4.4
+tornado                      6.3.1
+tqdm                         4.65.0
+traitlets                    5.9.0
+typer                        0.7.0
+typing_extensions            4.5.0
+tzdata                       2023.3
+uri-template                 1.2.0
+urllib3                      1.26.15
+uvicorn                      0.22.0
+wasabi                       1.1.1
+wcwidth                      0.2.6
+webencodings                 0.5.1
+websocket-client             1.5.1
+Werkzeug                     2.3.3
+widgetsnbextension           4.0.7
+wordcloud                    1.9.2
+wrapt                        1.14.1
+y-py                         0.5.9
+ypy-websocket                0.8.2
 
+```
+
+Para o funcionamento do front-end é necessário a instalação do pacote node modules. O mesmo é feito com o comando :
+```
+npm install node
+```
 ## 💻 Configuração de Desenvolvimento
 
-Acrescentar as informações necessárias para configuração de desenvolvimento do projeto (modificação do projeto).(Sprint 5)
+Após a instalação de todas as bibliotecas para rodar o projeto na máquina local são necessário os seguintes passos. 
+
+**Executando o frontend**
+
+Na sua IDE de preferência abra a pasta "src" e logo em seguida a pasta "front".
+
+Execute o seguinte comando no terminal
+
+```js
+npm run dev
+```
+Pronto, o frontend já está rodando.
+
+**Executando a API**
+
+Continuando na pasta "src" abra a pasta "api".
+Logo em seguida abra mais uma aba do terminal e execute o seguinte comando :
+
+```python
+  python app.py
+```
+
+Pronto, todo o projeto já está rodando localmente e pode ser alterado a vontade. 
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - XX/XX/2023
-
-  * Quinta entrega
-* 0.4.0 - XX/XX/2023
-
-  * Quarta entrega
+* 0.5.0 - 22/06/2023
+  * Quinta entrega: Criação do diagrama UML, criação do frontend, deploy do melhor modelo e construção de api. 
+* 0.4.0 - 09/06/2023
+  * Quarta entrega: Proposta de novas arquiteturas de modelos e modelagem de novas features. 
 * 0.3.0 - 26/05/2023
-
-  * Terceira entrega: Aplicação de word2vec e análise de resultados
+  * Terceira entrega: Aplicação do modelo word2vec e análise dos resultados.
 * 0.2.0 - 12/05/2023
-
-  * Segunda entrega: Pré processamento do corpus, aplicação de Bag of Words e análise de resultados
+  * Segunda entrega: Pré processamento do corpus, aplicação do Bag of Words e análise dos resultados.
 * 0.1.0 - 28/04/2023
-
-  * Primeira entrega : Documentação Análise de Negócios e UX
+  * Primeira entrega : Artefatos de negócios e UX.
 
 ### 📋 Licença/License:
 
